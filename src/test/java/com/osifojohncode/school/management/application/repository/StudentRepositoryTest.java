@@ -49,4 +49,30 @@ class StudentRepositoryTest {
              studentRepository.findAll();
         System.out.println("student List = " + students);
     }
+    @Test
+    public void printStudentByFirstName(){
+        String studentName = "John";
+        List<Student> students = studentRepository.findByFirstNameIgnoreCase(studentName);
+        System.out.println("student = " + students);
+    }
+
+    @Test
+    public void printStudentByFirstNameContaining(){
+        String studentName = "Jo";
+        List<Student> students = studentRepository.findByFirstNameIgnoreCaseContaining(studentName);
+        System.out.println("student = " + students);
+    }
+    @Test
+    public void printStudentBasedOnGuardianName(){
+        String GuardianName = "francis";
+        List<Student> guardian = studentRepository.findByGuardianNameIgnoreCase(GuardianName);
+        System.out.println("student = " + guardian);
+    }
+    @Test
+    public void printStudentBasedOnFirstNameAndLastName(){
+        String firstName = "John";
+        String lastName = "osifo";
+        List<Student> students = studentRepository.findByFirstNameIgnoreCaseAndLastNameIgnoreCase(firstName,lastName);
+        System.out.println("student = " + students);
+    }
 }
