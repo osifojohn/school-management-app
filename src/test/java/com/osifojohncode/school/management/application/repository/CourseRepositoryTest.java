@@ -105,4 +105,29 @@ class CourseRepositoryTest {
         System.out.println("courses = " + courses);
     }
 
+    @Test
+    public void saveCourseWithStudentAndTeacher() {
+
+        Teacher teacher = Teacher.builder()
+                .firstName("Joel")
+                .lastName("Agbon")
+                .build();
+
+        Student student = Student.builder()
+                .firstName("John")
+                .lastName("Osifo")
+                .emailId("osifojohn@gmail.com")
+                .build();
+
+        Course course = Course
+                .builder()
+                .title("AI")
+                .credit(12)
+                .teacher(teacher)
+                .build();
+
+        course.addStudents(student);
+
+        courseRepository.save(course);
+    }
 }
